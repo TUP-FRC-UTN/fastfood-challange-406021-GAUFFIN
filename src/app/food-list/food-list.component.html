@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">FoodList</h5>
+
+    @for (item of pendingOrders; track item.id) {
+    <li>{{ item.order }}</li>
+    }
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
