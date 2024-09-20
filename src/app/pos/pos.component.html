@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card p-3">
   <h5 class="card-title">POS</h5>
 
   <form
@@ -8,7 +8,7 @@
     novalidate
   >
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">CLIENT</label>
+      <label for="exampleInputEmail1" class="form-label">Cliente</label>
       <input
         [(ngModel)]="newOrder.client"
         type="text"
@@ -20,7 +20,7 @@
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">ORDER</label>
+      <label for="exampleInputEmail1" class="form-label">Orden</label>
       <input
         [(ngModel)]="newOrder.order"
         type="text"
@@ -31,6 +31,6 @@
         name="orden"
       />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Ordenar</button>
   </form>
 </div>
