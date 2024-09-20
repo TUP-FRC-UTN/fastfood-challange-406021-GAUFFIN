@@ -1,3 +1,5 @@
+import { FoodItem, FoodStatusEnum } from "../models/foodItem";
+
 export const INITIAL_ORDERS: FoodItem[] = [
   {
     id: 1,

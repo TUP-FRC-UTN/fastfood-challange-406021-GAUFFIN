@@ -1,10 +1,53 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Kitchen</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Pendiente de cocinar</h6>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Orden</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of orders; track $index) { @if (item.status===status) {
+            <tr>
+              <th scope="row">{{ item.id }}</th>
+              <td>{{ item.client }}</td>
+              <td>{{ item.order }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  (click)="cookItem(item.id)"
+                  [disabled]="cookingOrder"
+                >
+                  Cocinar
+                </button>
+              </td>
+            </tr>
+            } }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    @if (cookingOrder) {
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">Pedido en cocción</h5>
+
+        #{{ cookingOrder.id }} - {{ cookingOrder.order }}
+        <br />
+        <a href="#" class="btn btn-primary" (click)="finishCooking()"
+          >Pedido terminado</a
+        >
+      </div>
+    </div>
+    }
   </div>
 </div>

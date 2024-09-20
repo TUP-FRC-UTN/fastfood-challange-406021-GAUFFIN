@@ -1,11 +1,11 @@
-interface FoodItem {
+export interface FoodItem {
   id: number;
   order: string;
   client: string;
   status: FoodStatusEnum;
 }
 
-enum FoodStatusEnum {
+export enum FoodStatusEnum {
   PENDING,
   COOKING,
   READY,

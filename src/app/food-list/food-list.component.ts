@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FoodService } from '../services/food.service';
+import { FoodItem, FoodStatusEnum } from '../models/foodItem';
 
 @Component({
   selector: 'app-food-list',
@@ -9,6 +10,7 @@ import { FoodService } from '../services/food.service';
   styleUrl: './food-list.component.css',
 })
 export class FoodListComponent {
+  state = FoodStatusEnum.PENDING;
   private foodService = inject(FoodService);
   pendingOrders: FoodItem[] = [];
   ngOnInit() {
@@ -16,8 +18,6 @@ export class FoodListComponent {
   }
 
   refreshOrders() {
-    this.pendingOrders = this.foodService.getOrderByStatus(
-      FoodStatusEnum.PENDING
-    );
+    this.pendingOrders = this.foodService.getAllOrders();
   }
 }

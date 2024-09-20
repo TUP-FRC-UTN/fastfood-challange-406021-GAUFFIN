@@ -2,9 +2,23 @@
   <div class="card-body">
     <h5 class="card-title">FoodList</h5>
 
-    @for (item of pendingOrders; track item.id) {
-    <li>{{ item.order }}</li>
-    }
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Orden</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of pendingOrders; track $index) { @if (item.status===state) {
+        <tr>
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.client }}</td>
+          <td>{{ item.order }}</td>
+        </tr>
+        } }
+      </tbody>
+    </table>
   </div>
 </div>
